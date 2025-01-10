@@ -1,0 +1,978 @@
+/* Google Font CDN Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body{
+  width: 100%;
+  height: auto;
+  background-color: black;
+  overflow-x: hidden;
+}
+
+/* Custom Scroll Bar CSS */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #b74b4b;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #b74b4b;
+}
+
+/* Navbar styling */
+nav{
+  width: 100%;
+  height: 10vh;
+}
+
+.nav-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo{
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.logo span{
+  color: #b74b4b;
+  text-shadow: 0 0 10px #b74b4b;
+}
+
+.hamburg,
+.cancel{
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  font-size: clamp(2.5rem, 0.5rem + 5vw, 3rem);
+}
+
+.nav-container .links{
+  display: flex;
+}
+
+.nav-container .links a{
+  position: relative;
+  font-size: 1.2rem;
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: 550;
+  transition: 0.3s linear;
+}
+
+.nav-container .links a::before{
+  position: absolute;
+  content: "";
+  bottom: -3px;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background-color: #b74b4b;
+  transition: 0.2s linear;
+}
+
+.nav-container .links a:hover::before{
+  width: 100%;
+}
+
+.nav-container .links a:hover{
+  color: #b74b4b;
+}
+
+.dropdown{
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  transform: translateY(-500px);
+  width: 100%;
+  height: auto;
+  backdrop-filter: blur(4px) brightness(40%);
+  box-shadow:  0 0 20px black;
+  transition: 0.2s linear;
+}
+
+.dropdown .links a{
+  display: flex;
+  color: white;
+  text-decoration: none;
+  justify-content: center;
+  padding: 15px 0;
+  align-items: center;
+  transition: 0.2s linear;
+}
+
+.dropdown .links a:hover{
+  background-color: #b74b4b;
+}
+
+section{
+  width: 100%;
+  min-height: 90vh;
+}
+
+section .main-container{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 100px;
+  align-items: center;
+}
+
+.main-container .image {
+  min-height: 100vh;
+  padding: 5rem 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* ছবিটিকে সেন্টারে আনবে */
+  text-align: center;
+  margin-left: 0;
+}
+
+.main-container .image img {
+  width: 600px;  /* আপনার ছবির আকার অনুযায়ী এখানে পরিবর্তন করুন */
+  height: 600px; /* ছবির উচ্চতা ও প্রস্থ একরকম রাখতে হবে */
+  border-radius: 50%; /* ছবিটিকে বৃত্ত আকারে পরিণত করবে */
+  object-fit: cover; /* ছবির ফিটিং ঠিকঠাক রাখবে */
+  animation: animate-image 1.5s ease-in-out infinite;
+  margin-left: -140px;
+}
+
+@keyframes animate-image {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.main-container .content{
+  color: white;
+  width: 40%;
+}
+
+.content h1{
+  font-size: clamp(1rem, 1rem + 5vw, 1.8rem);
+  animation: fade-in 1.5s ease-in;
+}
+
+.content h1 span{
+  color: #b74b4b;
+  text-shadow: 0  0 10px #b74b4b;
+}
+.content .typewriter{
+  font-size: clamp(1rem, 1rem + 5vw, 2.5rem);
+  font-weight: 600;
+}
+
+.content .typewriter-text{
+  color: #b74b4b;
+  text-shadow: 0 0 10px #b74b4b;
+}
+
+.content p{
+  font-size: clamp(0.4rem , 0.2rem + 9vw, 1rem);
+  margin: 10px 0;
+  animation: slide-up 1.5s ease-in;
+}
+
+.social-links i{
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 3rem;
+  height: 3rem;
+  background-color: transparent;
+  border: 0.2rem solid #b74b4b;
+  border-radius: 50%;
+  color: #b74b4b;
+  margin: 5px 10px; /* আইকন গুলোকে বাম দিকে সরানোর জন্য মার্জিন পরিবর্তন */
+  font-size: 1.5rem;
+  transition: 0.2s linear;
+  animation: bounce 2s infinite;
+}
+
+.social-links i:hover{
+  scale: 1.3;
+  color: black;
+  background-color: #b74b4b;
+  filter: drop-shadow(0 0 10px #b74b4b);
+}
+
+.content button{
+  width: 50%;
+  height: 6vh;
+  margin: 30px;
+  background-color: #b74b4b;
+  color: white;
+  border: none;
+  outline: none;
+  font-size: 120%;
+  font-weight: 700;
+  border-radius: 5px;
+  transition: 0.2s linear;
+  margin-left: 20px;
+  animation: zoom-in 1.5s ease-in;
+}
+
+.content button:hover{
+  scale: 1.1;
+  color: #b74b4b;
+  border: 2px solid #b74b4b;
+  background-color: transparent;
+  font-weight: 700;
+  box-shadow: 0 0 40px #b74b4b;
+}
+
+/* Keyframe Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes zoom-in {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* About Section Styling */
+
+/* Content Styling */
+section .content {
+  width: 80%;
+  margin: 0px auto;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* About Details */
+.about .about-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Title Styling */
+section .title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+section .title span {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+section .title span::before,
+section .title span::after {
+  content: '';
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: #b74b4b;
+  left: 0;
+  bottom: 0;
+}
+
+section .title span::after {
+  bottom: -7px;
+  width: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* About Image & Text Layout */
+.about .about-details .left {
+  width: 45%;
+}
+
+.about .left img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.about-details .right {
+  width: 55%;
+}
+
+/* Topic Styling */
+section .topic {
+  color: white;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+/* Paragraph Styling */
+.about-details .right p {
+  text-align: justify;
+  color: white;
+}
+
+/* Button Styling */
+section .button {
+  margin: 16px 0;
+}
+
+section .button button {
+  outline: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 25px;
+  font-weight: 400;
+  background: #b74b4b;
+  color: #fff;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+section .button button:hover {
+  border-color: #b74b4b;
+  background-color: #fff;
+  color: #b74b4b;
+}
+
+
+
+
+
+
+
+
+
+
+/* Skills Section Styling */
+.skills {
+  background: black;
+}
+
+.skills .content {
+  padding: 40px 0;
+}
+
+.skills .skills-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.skills-details .text {
+  width: 50%;
+}
+
+.skills-details p {
+  color: white;
+  text-align: justify;
+}
+
+.skills .skills-details .experience {
+  display: flex;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.skills-details .experience .num {
+  color: white;
+  font-size: 80px;
+}
+
+.skills-details .experience .exp {
+  color: white;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 6px;
+}
+
+.skills-details .boxes {
+  width: 45%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skills-details .box {
+  width: calc(100% / 2 - 20px);
+  margin: 20px 0;
+}
+
+.skills-details .boxes .topic {
+  font-size: 20px;
+  color: #b74b4b;
+}
+
+.skills-details .boxes .per {
+  font-size: 60px;
+  color: #b74b4b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Services Section Styling */
+.services .boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.services .boxes .box {
+  margin: 20px 0;
+  width: calc(100% / 3 - 20px);
+  text-align: center;
+  border-radius: 12px;
+  padding: 30px 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.12);
+  cursor: default;
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.services .boxes .box:hover {
+  background: #b74b4b;
+  color: #fff;
+}
+
+.services .boxes .box .icon {
+  height: 50px;
+  width: 50px;
+  background: #b74b4b;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 18px;
+  color: #fff;
+  margin: 0 auto 10px auto;
+  transition: all 0.4s ease;
+}
+
+.boxes .box:hover .icon {
+  background-color: #fff;
+  color: #b74b4b;
+}
+
+.services .boxes .box:hover .topic,
+.services .boxes .box:hover p {
+  color: white;
+  transition: all 0.4s ease;
+}
+
+.services .boxes .box:hover .topic,
+.services .boxes .box:hover p {
+  color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contact Section Styling */
+.contact {
+  background: black;
+}
+
+.contact .content {
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+.contact .text {
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+
+/* Footer Styling */
+footer {
+  background: #b74b4b;
+  padding: 15px 0;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+footer .text span {
+  font-size: 17px;
+  font-weight: 400;
+  color: #fff;
+}
+
+footer .text span a {
+  font-weight: 500;
+  color: #FFF;
+}
+
+footer .text span a:hover {
+  text-decoration: underline;
+}
+
+
+/* Scroll Button Styling */
+.scroll-button a {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: #fff;
+  background: #b74b4b;
+  padding: 7px 12px;
+  font-size: 18px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.15);
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Media Queries */
+
+/* For screens smaller than 1000px */
+@media (max-width: 1000px) {
+  .about .about-details {
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .about .about-details .left {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .about-details .right {
+    width: 90%;
+    margin: 40px 0;
+  }
+
+  .services .boxes .box {
+    margin: 20px 0;
+    width: calc(100% / 2 - 20px);
+  }
+}
+
+/* For screens smaller than 900px */
+@media (max-width: 900px) {
+  .about .left img {
+    height: 350px;
+    width: 350px;
+  }
+}
+
+/* For screens smaller than 968px */
+@media (max-width: 968px) {
+  nav .logo {
+    position: absolute;
+    top: 16px;
+    left: 15px;
+    font-size: 1.5rem;
+  }
+
+  section .main-container {
+    padding-left: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-container .links {
+    display: none;
+  }
+
+  .hamburg,
+  .cancel {
+    opacity: 1;
+    pointer-events: visible;
+  }
+
+  .main-container .content {
+    margin-top: 20px;
+    width: 80%;
+  }
+
+  .social-links i {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+  }
+
+  .main-container .image {
+    z-index: -1;
+    width: 50%;
+    height: 60%;
+  }
+
+  .skills .skills-details {
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .skills-details .text {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+
+  .skills-details .boxes {
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .services .boxes .box {
+    margin: 20px 0;
+    width: 100%;
+  }
+
+  .contact .text {
+    width: 100%;
+  }
+}
+
+/* For screens smaller than 500px */
+@media (max-width: 500px) {
+  .main-container .image {
+    width: 50%;
+    height: 60%;
+    margin-bottom: 0px;
+  }
+
+  .main-container .content {
+    width: 80%;
+  }
+
+  .main-container button {
+    margin-top: 15px;
+  }
+
+  .skills-details .boxes .per {
+    font-size: 50px;
+    color: #b74b4b;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  /* Navigation - নেভিগেশন অংশের জন্য */
+  .nav-container {
+    padding: 10px 20px;
+    justify-content: flex-start; /* নেভিগেশন আইটেম বাম দিকে রাখে */
+  }
+
+  .logo {
+    font-size: 1.8rem; /* লোগোর ফন্ট সাইজ কমানো */
+    margin-left: 10px;
+  }
+
+  .hamburg {
+    display: block; /* ছোট ডিভাইসে বারগার মেনু প্রদর্শন করে */
+    font-size: 1.5rem;
+  }
+
+  /* Main Container - প্রধান অংশ */
+  .main-container {
+    flex-direction: column; /* কলাম লেআউটে পরিবর্তন করে */
+    padding: 20px;
+    text-align: center; /* সবকিছু মাঝামাঝি করে */
+  }
+
+  .main-container .image {
+    padding: 2rem;
+    min-height: auto; /* মিনিমাম উচ্চতা স্বয়ংক্রিয় */
+  }
+
+  .main-container .image img {
+    width: 280px; /* ছবির প্রস্থ কমানো */
+    height: 280px;
+    margin: 0 auto;
+  }
+
+  .main-container .content {
+    width: 90%; /* বিষয়বস্তুর প্রস্থ কমানো */
+    margin: 20px auto;
+  }
+
+  .content h1 {
+    font-size: 1.8rem; /* শিরোনামের ফন্ট ছোট */
+  }
+
+  .content .typewriter {
+    font-size: 1.5rem; /* টাইপরাইটার ইফেক্টের ফন্ট ছোট */
+  }
+
+  .content p {
+    font-size: 1rem; /* প্যারাগ্রাফের ফন্ট সাইজ */
+    margin: 15px 0;
+  }
+
+  /* Social Links - সোশ্যাল লিঙ্কের জন্য */
+  .social-links {
+    display: flex;
+    justify-content: center; /* সোশ্যাল আইকন মাঝখানে */
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+  }
+
+  .social-links i {
+    width: 2.5rem;
+    height: 2.5rem; /* আইকনের আকার ছোট */
+    font-size: 1.2rem;
+  }
+
+  .content button{
+    width: 70%;
+    height: 7vh;
+    margin: 30px;
+    background-color: #b74b4b;
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 120%;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: 0.2s linear;
+    margin-left: 20px;
+    animation: zoom-in 1.5s ease-in;
+  }
+  
+  .content button:hover{
+    scale: 1.1;
+    color: #b74b4b;
+    border: 2px solid #b74b4b;
+    background-color: transparent;
+    font-weight: 700;
+    box-shadow: 0 0 40px #b74b4b;
+  }
+
+
+
+  /* About Section - সম্পর্কে অংশ */
+  .about .about-details {
+    flex-direction: column; /* কলামে বিন্যাস */
+  }
+
+  .about .left img {
+    width: 280px;
+    height: 280px;
+    margin-bottom: 20px;
+  }
+
+  .about-details .right {
+    width: 100%;
+    padding: 0 20px;
+  }
+
+  /* Skills Section - দক্ষতার অংশ */
+  .skills-details {
+    flex-direction: column;
+    padding: 0 20px;
+  }
+
+  .skills-details .text,
+  .skills-details .boxes {
+    width: 100%;
+  }
+
+  .skills-details .box {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .skills-details .experience {
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .skills-details .experience .num {
+    font-size: 3rem; /* অভিজ্ঞতা নম্বরের সাইজ */
+  }
+
+  /* Services Section - পরিষেবা অংশ */
+  .services .boxes {
+    padding: 0 20px;
+  }
+
+  .services .boxes .box {
+    width: 100%;
+    margin: 15px 0;
+    padding: 20px;
+  }
+
+  /* Contact Section - যোগাযোগ অংশ */
+  .contact .text {
+    padding: 0 20px;
+  }
+
+  .contact .topic {
+    font-size: 1.5rem; /* যোগাযোগ শিরোনামের ফন্ট */
+  }
+
+  /* Footer - পাদটীকা */
+  footer .text span {
+    font-size: 0.9rem;
+  }
+
+  /* Dropdown Menu - ড্রপডাউন মেনু */
+  .dropdown {
+    padding-top: 60px;
+  }
+
+  .dropdown .links a {
+    font-size: 1.1rem;
+    padding: 12px 0;
+  }
+
+  .cancel {
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Small Mobile Devices - ছোট মোবাইল ডিভাইস */
+@media (max-width: 480px) {
+  .main-container .image img {
+    width: 240px; /* ছবির সাইজ আরও ছোট */
+    height: 240px;
+  }
+
+  .content h1 {
+    font-size: 1.5rem; /* শিরোনাম আরও ছোট */
+  }
+
+  .content .typewriter {
+    font-size: 1.3rem;
+  }
+
+  .social-links i {
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+  }
+
+  .about .left img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .skills-details .experience .num {
+    font-size: 2.5rem; /* অভিজ্ঞতা সংখ্যা আরও ছোট */
+  }
+}
